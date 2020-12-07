@@ -1,0 +1,9 @@
+kz\dias\school\config\MySpringMvcDispatcherServletInitializer.class
+kz\dias\school\controllers\StudentsController.class
+kz\dias\school\mybatis\MyBatisUtil.class
+kz\dias\school\dao\StudentMapper.class
+kz\dias\school\models\User.class
+kz\dias\school\config\SpringConfig.class
+kz\dias\school\Application.class
+kz\dias\school\controllers\UserController.class
+kz\dias\school\models\Student.class

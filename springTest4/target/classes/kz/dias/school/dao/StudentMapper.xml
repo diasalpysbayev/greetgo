@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kz.dias.school.dao.StudentMapper">
+    <resultMap type="student" id="result" >
+        <id property="id" column="id" />
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="subject" column="subject"/>
+        <result property="grade" column="grade"/>
+    </resultMap>
+    <select id="getAllStudents" resultType="student" resultMap="result">
+        SELECT * FROM students
+    </select>
+    <delete id="deleteStudent" parameterType="int">
+		DELETE FROM students WHERE id = #{id}
+	</delete>
+    <insert id="insertStudent" parameterType="student" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO students(name, surname, subject, grade)
+		VALUES(#{name}, #{surname}, #{subject}, #{grade})
+	</insert>
+    <select id="findById" parameterType="int" resultType="student" resultMap="result">
+		SELECT * FROM students WHERE id = #{studentId}
+	</select>
+    <update id="updateStudent" parameterType="student">
+		UPDATE students SET name = #{name}, surname = #{surname}, subject = #{name}, grade = #{surname}
+		WHERE id = #{id}
+	</update>
+</mapper>
