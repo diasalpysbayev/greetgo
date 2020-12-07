@@ -1,0 +1,61 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+    <h1>Электронный журнал</h1>
+    <div> 
+        <form>
+            <div class="forms">
+                <div class="forms__text">Введите имя:</div>
+                <input class="forms__input" type="text" [(ngModel)] = "student.name" name="name"><br>
+            </div>
+            <div class="forms">
+                <div class="forms__text">Введите фамилию:</div>
+                <input class="forms__input" type="text" [(ngModel)] = "student.surname" name="surname"><br>
+            </div>
+            <div class="forms">
+                <div class="forms__text">Олимпиада по:</div>
+                <input class="forms__input" type="text" [(ngModel)] = "student.subject" name="subject"><br>
+            </div>
+            <div class="forms select">
+                <div class="forms__text">Класс:</div>
+                <select class="forms__select" [(ngModel)] = "student.grade" name="grade">
+                    <option>11А</option>
+                    <option>10Б</option>
+                    <option>10А</option>
+                    <option>9А</option>
+                </select>
+            </div>
+            <div class="button">
+                <button type="button" class="btn btn-primary" (click) = "checkField()" (click) = "clearField()">Добавить</button>
+                
+            </div>
+            <div class="invalid" *ngIf="showErrorMessage">
+                Заполните все поля
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2>Список учеников:</h2>
+        <div class="table">
+            <table border = "1">
+                <tr>
+                    <th>id</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Предмет</th>
+                    <th>Класс</th>
+                    <th>Удалить</th>
+                </tr>
+                <tr *ngFor = "let student of students">
+                    <td>{{student.id}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.surname}}</td>
+                    <td>{{student.subject}}</td>
+                    <td>{{student.grade}}</td>
+                    <td><button type="button" class="btn btn-primary" (click) = "deleteStudent(student.id)">Удалить</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</body>

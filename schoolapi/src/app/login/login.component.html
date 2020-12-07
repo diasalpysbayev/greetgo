@@ -1,0 +1,25 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+    
+<h1>Вход учителя</h1>
+<form action="login" method="post">
+    <div class="forms">
+        <div class="forms__text">Логин</div>
+        <input class="forms__input" type="text" [(ngModel)] = "login.username" name="username" required="required"> 
+    </div>  
+    <div class="forms">
+        <div class="forms__text">Пароль</div>
+        <input class="forms__input" type="password" [(ngModel)] = "login.password" name="password" required="required">
+    </div>
+    <div class="button">
+        <button type="button" class="btn btn-primary" (click) = "checkLogin(login)" (click) = "clearField()">Войти</button>
+    </div>  
+    <div class="invalid" *ngIf="showErrorMessage">
+        Логин или пароль введены неверно
+    </div>
+</form>
+
+</body>
+</html>
